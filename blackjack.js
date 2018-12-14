@@ -90,14 +90,20 @@ document.write('<br>');
  
 }
 function buttons(){
+var count = 0;
+if(count == 0){
 document.write('<button onclick="func()">Hit</button>')
+}
 }
 function func(){
 i++;
 document.body.innerHTML = "";
+draw();
+drawd();
 
 
 }
+
 
 
 
