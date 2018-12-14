@@ -3,5 +3,5 @@ var x;
 var y;
 var array = ["-","-","-","|"," ","|","-","-","-"];
 for(x = 0;x < 3;x++){
-
+    document.write(array[x]);
 }
