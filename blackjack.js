@@ -1,17 +1,48 @@
-var n = Math.floor(Math.random() * (14 - 1 + 1) ) + 1; //The number of the card
+var n,n2,n3,n4,n5; //cardnumber
 var x;
-var y;
-var array = ["-","-","-","|"," ","|","-","-","-"];
-for(x = 0;x < 9;x++){
-    if(x == 3 || x ==6){
-       document.write('<br>');
+var amountcards; //used for amount of cards to draw
+
+var arr1 = ["-","-","-"," "];
+var arr2 = ["|"," ","|"," "];
+var i = 2;
+n = rand();
+n2 = rand();
+n3 = rand();
+n4 = rand();
+n5 = rand();
+draw();
+
+function draw(){
+document.write("Your cards");
+document.write('<br>');
+ for(amountcards = 0;amountcards < i;amountcards++){
+    for(x = 0;x < 4;x++){
+        document.write(arr1[x]);
     }
-    if(x == 4){
-    if(n == 11) n = "J";
-    if(n == 12) n = "Q";
-    if(n == 13) n = "K";
-    if(n == 14) n = "A";
-    document.write(n);
+ }
+ document.write('<br>');
+ for(amountcards = 0;amountcards < i;amountcards++){
+    for(x = 0;x < 4;x++){
+    if(amountcards == 0 && x == 1) arr2[x] = n;
+    if(amountcards == 1 && x == 1) arr2[x] = n2;
+    if(amountcards == 2 && x == 1) arr2[x] = n3;
+    if(amountcards == 3 && x == 1) arr2[x] = n4;
+    if(amountcards == 4 && x == 1) arr2[x] = n5;
+        document.write(arr2[x]);
     }
-    document.write(array[x]);
+ }
+ document.write('<br>');
+ for(amountcards = 0;amountcards < i;amountcards++){
+    for(x = 0;x < 4;x++){
+        document.write(arr1[x]);
+    }
+ }  
+}
+function rand(){
+number = Math.floor(Math.random() * (14 - 1 + 1) ) + 1;
+    if(number == 11) number = "J"; //should of used switch
+    if(number == 12) number = "Q";
+    if(number == 13) number = "K";
+    if(number == 14) number = "A";
+    return number;
 }
