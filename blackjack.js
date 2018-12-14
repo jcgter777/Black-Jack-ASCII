@@ -7,6 +7,11 @@ for(x = 0;x < 9;x++){
        document.write('<br>');
     }
     if(x == 4){
+    if(n == 11) n = "J";
+    if(n == 12) n = "Q";
+    if(n == 13) n = "K";
+    if(n == 14) n = "A";
     document.write(n);
     }
     document.write(array[x]);
+}
