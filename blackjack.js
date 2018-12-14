@@ -1,3 +1,5 @@
+
+
 var n,n2,n3,n4,n5; //cardnumber
 var nd,nd2,nd3,nd4,nd5;
 var x;
@@ -20,6 +22,7 @@ nd4 = rand();
 nd5 = rand();
 draw();
 drawd();
+buttons();
 
 function draw(){
 document.write("Your cards");
@@ -86,3 +89,15 @@ document.write('<br>');
  document.write('<br>');
  
 }
+function buttons(){
+document.write('<button onclick="func()">Hit</button>')
+}
+function func(){
+i++;
+document.body.innerHTML = "";
+
+
+}
+
+
+
