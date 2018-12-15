@@ -1,5 +1,4 @@
-<script>
- //version has dealer bug
+
 var num;
 var h,h2,h3,h4,h5; // holders they just hold something
 var n,n2,n3,n4,n5; //cardnumber
@@ -8,7 +7,7 @@ var x;
 var disd = 0; //used to display the 2,3,4 ... card
 var amountcards; //used for amount of cards to draw
 var total; //total of the whole hand
-
+var totald = 0;
 var arr1 = ["-","-","-"," "];
 var arr2 = ["|"," ","|"," "];
 var i = 2;
@@ -26,6 +25,7 @@ d4 = rand();
 d5 = rand();
 draw();
 drawd();
+di--;
 buttons();
 function draw(){
 document.write("Your cards");
@@ -83,7 +83,7 @@ document.write('<br>');
     if(amountcardsd == 1 && x == 1) arr2[x] = d2;
     if(amountcardsd == 2 && x == 1) arr2[x] = d3;
     if(amountcardsd == 3 && x == 1) arr2[x] = d4;
-    if(amountcardsd == 1 && x == 1) arr2[x] = d5;
+    if(amountcardsd == 4 && x == 1) arr2[x] = d5;
     }
         document.write(arr2[x]);
         }
@@ -187,6 +187,7 @@ drawd();
 if(di < 6) dealer();
 }
 function dealer(){
+if(di < 3) totald = d + d2;
 dadd();
 if(totald < 17) dfunc();
 }
@@ -201,20 +202,11 @@ convertd(d2);
 convertd(d3);
 convertd(d4);
 convertd(d5);
-switch(di){
-case 2:
-totald = d + d2;
-break;
-case 3:
-totald = d + d2 + d3;
-break;
-case 4:
-totald = d + d2 + d3 + d4;
-break;
-case 5:
-totald = d + d2 + d3 + d4 + d5;
-break;
-}
+if(di < 3) totald = d + d2;
+if(di == 3) totald = d + d2 + d3;
+if(di == 4) totald = d + d2 + d3 + d4;
+if(di == 5) totald = d + d2 + d3 + d4 + d5;
+
 d = h;
 d2 = h2;
 d3 = h3;
@@ -228,6 +220,7 @@ document.write('<br>');
 document.write("Dealer Busted");
 document.write('<br>');
 document.write(totald);
+document.write('<br>');
 }
 }
 function convertd(){
@@ -252,4 +245,5 @@ function convertd(){
     if(d5 == "K") d5 = 10;
     if(d5 == "A") d5 = 11;
 }
-</script>
+
+
