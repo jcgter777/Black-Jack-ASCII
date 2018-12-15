@@ -1,13 +1,12 @@
-<script>
-
 
 var num;
 var h,h2,h3,h4,h5; // holders they just hold something
 var n,n2,n3,n4,n5; //cardnumber
-var d,d2,d3,d4,d5;
+var d,d2,d3,d4,d5;//dealer cardnumbers
 var x;
+var disd = 0; //used to display the 2,3,4 ... card
 var amountcards; //used for amount of cards to draw
-var total;
+var total; //total of the whole hand
 
 var arr1 = ["-","-","-"," "];
 var arr2 = ["|"," ","|"," "];
@@ -79,6 +78,12 @@ document.write('<br>');
         arr2[x] = " ";
     }
     else{
+    if(disd > 0){
+    if(amountcardsd == 1 && x == 1) arr2[x] = d2;
+    if(amountcardsd == 2 && x == 1) arr2[x] = d3;
+    if(amountcardsd == 3 && x == 1) arr2[x] = d4;
+    if(amountcardsd == 1 && x == 1) arr2[x] = d5;
+    }
         document.write(arr2[x]);
         }
     }
@@ -95,6 +100,7 @@ document.write('<br>');
 function buttons(){
 if(i < 5){
 document.write('<button onclick="func()">Hit</button>');
+document.write('<button onclick="dfunc()">Stand</button>');
 }
 add();
 }
@@ -143,6 +149,8 @@ convert(n3);
 convert(n4);
 convert(n5);
 switch(i){
+case 2:
+total = n + n2;
 case 3:
 total = n + n2 + n3;
 break;
@@ -168,6 +176,80 @@ document.write('<br>');
 document.write(total);
 }
 }
+function dfunc(){
+disd++;
+di++;
+document.body.innerHTML = "";
+draw();
+drawd();
+if(di < 6) dealer();
+}
+function dealer(){
+dadd();
+if(totald < 17) dfunc();
+}
+function dadd(){
+h = d;
+h2 = d2;
+h3 = d3;
+h4 = d4;
+h5 = d5;
+convertd(d);
+convertd(d2);
+convertd(d3);
+convertd(d4);
+convertd(d5);
+switch(di){
+case 2:
+totald = d + d2;
+break;
+case 3:
+totald = d + d2 + d3;
+break;
+case 4:
+totald = d + d2 + d3 + d4;
+break;
+case 5:
+totald = d + d2 + d3 + d4 + d5;
+break;
+}
+d = h;
+d2 = h2;
+d3 = h3;
+d4 = h4;
+d5 = h5;
+if(totald  > 21){
+document.body.innerHTML = "";
+draw();
+drawd();
+document.write('<br>');
+document.write("Dealer Busted");
+document.write('<br>');
+document.write(totald);
+}
+}
+function convertd(){
+    if(d == "J") d = 10; //should of used switch
+    if(d == "Q") d = 10;
+    if(d == "K") d = 10;
+    if(d == "A") d = 11;
+    if(d2 == "J") d2 = 10; //should of used switch
+    if(d2 == "Q") d2 = 10;
+    if(d2 == "K") d2 = 10;
+    if(d2 == "A") d2 = 11;
+    if(d3 == "J") d3 = 10; //should of used switch
+    if(d3 == "Q") d3 = 10;
+    if(d3 == "K") d3 = 10;
+    if(d3 == "A") d3 = 11;
+    if(d4 == "J") d4 = 10; //should of used switch
+    if(d4 == "Q") d4 = 10;
+    if(d4 == "K") d4 = 10;
+    if(d4 == "A") d4 = 11;
+    if(d5 == "J") d5 = 10; //should of used switch
+    if(d5 == "Q") d5 = 10;
+    if(d5 == "K") d5 = 10;
+    if(d5 == "A") d5 = 11;
+}
 
 
 
@@ -176,4 +258,3 @@ document.write(total);
 
 
 
-</script>
