@@ -1,8 +1,10 @@
+<script>
 
 
 var num;
+var h,h2,h3,h4,h5; // holders they just hold something
 var n,n2,n3,n4,n5; //cardnumber
-var nd,nd2,nd3,nd4,nd5;
+var d,d2,d3,d4,d5;
 var x;
 var amountcards; //used for amount of cards to draw
 var total;
@@ -17,11 +19,11 @@ n2 = rand();
 n3 = rand();
 n4 = rand();
 n5 = rand();
-nd = rand();
-nd2 = rand();
-nd3 = rand();
-nd4 = rand();
-nd5 = rand();
+d = rand();
+d2 = rand();
+d3 = rand();
+d4 = rand();
+d5 = rand();
 draw();
 drawd();
 buttons();
@@ -72,7 +74,7 @@ document.write('<br>');
  for(amountcardsd = 0;amountcardsd < di;amountcardsd++){
     for(x = 0;x < 4;x++){
     if(amountcardsd == 0 && x == 1){
-        arr2[x] = nd;
+        arr2[x] = d;
         document.write(arr2[x]);
         arr2[x] = " ";
     }
@@ -94,9 +96,7 @@ function buttons(){
 if(i < 5){
 document.write('<button onclick="func()">Hit</button>');
 }
-if(i == 5){
 add();
-}
 }
 function func(){
 i++;
@@ -132,6 +132,11 @@ function convert(){
 
 }
 function add(){
+h = n;
+h2 = n2;
+h3 = n3;
+h4 = n4;
+h5 = n5;
 convert(n);
 convert(n2);
 convert(n3);
@@ -148,13 +153,19 @@ case 5:
 total = n + n2 + n3 + n4 + n5;
 break;
 }
+n = h;
+n2 = h2;
+n3 = h3;
+n4 = h4;
+n5 = h5;
 if(total  > 21){
 document.body.innerHTML = "";
+draw();
+drawd();
 document.write('<br>');
 document.write("Busted");
 document.write('<br>');
 document.write(total);
-return 0;
 }
 }
 
@@ -163,3 +174,6 @@ return 0;
 
 
 
+
+
+</script>
