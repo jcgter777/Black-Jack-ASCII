@@ -1,9 +1,11 @@
 
 
+var num;
 var n,n2,n3,n4,n5; //cardnumber
 var nd,nd2,nd3,nd4,nd5;
 var x;
 var amountcards; //used for amount of cards to draw
+var total;
 
 var arr1 = ["-","-","-"," "];
 var arr2 = ["|"," ","|"," "];
@@ -23,7 +25,6 @@ nd5 = rand();
 draw();
 drawd();
 buttons();
-
 function draw(){
 document.write("Your cards");
 document.write('<br>');
@@ -90,9 +91,11 @@ document.write('<br>');
  
 }
 function buttons(){
-var count = 0;
-if(count == 0){
-document.write('<button onclick="func()">Hit</button>')
+if(i < 5){
+document.write('<button onclick="func()">Hit</button>');
+}
+if(i == 5){
+add();
 }
 }
 function func(){
@@ -100,9 +103,62 @@ i++;
 document.body.innerHTML = "";
 draw();
 drawd();
-
+if(i < 6){
+buttons();
+}
 
 }
+function convert(){
+    if(n == "J") n = 10; //should of used switch
+    if(n == "Q") n = 10;
+    if(n == "K") n = 10;
+    if(n == "A") n = 11;
+    if(n2 == "J") n2 = 10; //should of used switch
+    if(n2 == "Q") n2 = 10;
+    if(n2 == "K") n2 = 10;
+    if(n2 == "A") n2 = 11;
+    if(n3 == "J") n3 = 10; //should of used switch
+    if(n3 == "Q") n3 = 10;
+    if(n3 == "K") n3 = 10;
+    if(n3 == "A") n3 = 11;
+    if(n4 == "J") n4 = 10; //should of used switch
+    if(n4 == "Q") n4 = 10;
+    if(n4 == "K") n4 = 10;
+    if(n4 == "A") n4 = 11;
+    if(n5 == "J") n5 = 10; //should of used switch
+    if(n5 == "Q") n5 = 10;
+    if(n5 == "K") n5 = 10;
+    if(n5 == "A") n5 = 11;
+
+}
+function add(){
+convert(n);
+convert(n2);
+convert(n3);
+convert(n4);
+convert(n5);
+switch(i){
+case 3:
+total = n + n2 + n3;
+break;
+case 4:
+total = n + n2 + n3 + n4;
+break;
+case 5:
+total = n + n2 + n3 + n4 + n5;
+break;
+}
+if(total  > 21){
+document.body.innerHTML = "";
+document.write('<br>');
+document.write("Busted");
+document.write('<br>');
+document.write(total);
+return 0;
+}
+}
+
+
 
 
 
