@@ -1,4 +1,5 @@
-
+<script>
+ //version has dealer bug
 var num;
 var h,h2,h3,h4,h5; // holders they just hold something
 var n,n2,n3,n4,n5; //cardnumber
@@ -151,6 +152,7 @@ convert(n5);
 switch(i){
 case 2:
 total = n + n2;
+break;
 case 3:
 total = n + n2 + n3;
 break;
@@ -250,11 +252,4 @@ function convertd(){
     if(d5 == "K") d5 = 10;
     if(d5 == "A") d5 = 11;
 }
-
-
-
-
-
-
-
-
+</script>
