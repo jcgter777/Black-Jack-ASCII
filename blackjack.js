@@ -1,4 +1,6 @@
-
+<script>
+var bet;
+var money = 100;
 var num;
 var h,h2,h3,h4,h5; // holders they just hold something
 var n,n2,n3,n4,n5; //cardnumber
@@ -23,6 +25,7 @@ d2 = rand();
 d3 = rand();
 d4 = rand();
 d5 = rand();
+bet();
 draw();
 drawd();
 di--;
@@ -110,9 +113,7 @@ i++;
 document.body.innerHTML = "";
 draw();
 drawd();
-if(i < 6){
 buttons();
-}
 
 }
 function convert(){
@@ -190,6 +191,7 @@ function dealer(){
 if(di < 3) totald = d + d2;
 dadd();
 if(totald < 17) dfunc();
+else compare();
 }
 function dadd(){
 h = d;
@@ -245,5 +247,55 @@ function convertd(){
     if(d5 == "K") d5 = 10;
     if(d5 == "A") d5 = 11;
 }
+function compare(){
+if(total < 22 && totald < 22){
+if(total > totald){
+document.write("Dealer:");
+document.write(totald);
+document.write('<br>');
+document.write("Player:")
+document.write(total);
+document.write('<br>');
+document.write("You Win");
+money = money + bet;
+}
+if(total < totald){
+document.write("Dealer:");
+document.write(totald);
+document.write('<br>');
+document.write("Player:")
+document.write(total);
+document.write('<br>');
+document.write("You Lose");
+money = money - bet;
+
+}
+if(total == totald){
+document.write("Dealer:");
+document.write(totald);
+document.write('<br>');
+document.write("Player:")
+document.write(total);
+document.write('<br>');
+document.write("Push");
+}
+}
+}
+function bet(){
+var check;
+do{
+check = 0;
+document.write("money:");
+document.write(money);
+document.write('<br>');
+bet = prompt("Please enter the amount you want to bet");
+if(bet > money || bet < 0) check++;
+document.write("bet:");
+document.write(bet);
+document.write('<br>');
+}while(check != 0);
+}
 
 
+
+</script>
