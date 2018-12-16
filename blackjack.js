@@ -1,4 +1,4 @@
-<script>
+
 var bet;
 var money = 100;
 var num;
@@ -25,7 +25,7 @@ d2 = rand();
 d3 = rand();
 d4 = rand();
 d5 = rand();
-bet();
+//bet();
 draw();
 drawd();
 di--;
@@ -104,9 +104,10 @@ document.write('<br>');
 function buttons(){
 if(i < 5){
 document.write('<button onclick="func()">Hit</button>');
-document.write('<button onclick="dfunc()">Stand</button>');
 }
+document.write('<button onclick="dfunc()">Stand</button>');
 add();
+awin();
 }
 function func(){
 i++;
@@ -177,6 +178,7 @@ document.write('<br>');
 document.write("Busted");
 document.write('<br>');
 document.write(total);
+money = money - bet;
 }
 }
 function dfunc(){
@@ -190,6 +192,7 @@ if(di < 6) dealer();
 function dealer(){
 if(di < 3) totald = d + d2;
 dadd();
+awin();
 if(totald < 17) dfunc();
 else compare();
 }
@@ -223,6 +226,7 @@ document.write("Dealer Busted");
 document.write('<br>');
 document.write(totald);
 document.write('<br>');
+money = money + bet;
 }
 }
 function convertd(){
@@ -295,7 +299,69 @@ document.write(bet);
 document.write('<br>');
 }while(check != 0);
 }
+//alternate win conitions
+function awin(){
+if(i == 5 && total < 22){
+document.write('<br>');
+document.write("5 Card Charlie");
+document.write('<br>');
+document.write("You Win");
+money = money + bet;
+}
+if(di == 5 && totald < 22){
+document.write('<br>');
+document.write("5 Card Charlie");
+document.write('<br>');
+document.write("Dealer Wins");
+money = money - bet;
+}
+if(n == "A"){
+if(n2 == "J" || n2 == "Q" || n2 == "K" || n2 == 10){
+document.write('<br>');
+document.write("BlackJack");
+document.write('<br>');
+document.write("You Win");
+money = money + (bet * 1.5);
+}
+}
+if(n2 == "A"){
+if(n == "J" || n == "Q" || n == "K" || n == 10){
+document.write('<br>');
+document.write("BlackJack");
+document.write('<br>');
+document.write("You Win");
+money = money + (bet * 1.5);
+}
+}
+if(d2 == "A"){
+if(d == "J" || d == "Q" || d == "K" || d == 10){
+di = 2;
+document.body.innerHTML = "";
+disd++;
+draw();
+drawd();
+document.write('<br>');
+document.write("BlackJack");
+document.write('<br>');
+document.write("Dealer Wins");
+money = money - (bet * 1.5);
+}
+}
+if(d == "A"){
+if(d2 == "J" || d2 == "Q" || d2 == "K" || d2 == 10){
+document.body.innerHTML = "";
+di = 2;
+disd++;
+draw();
+drawd();
+document.write('<br>');
+document.write("BlackJack");
+document.write('<br>');
+document.write("Dealer Wins");
+money = money - (bet * 1.5);
+}
+}
+}
 
 
 
-</script>
