@@ -31,6 +31,12 @@ drawd();
 di--;
 buttons();
 function draw(){
+document.write("money:");
+document.write(money);
+document.write('<br>');
+document.write("bet:");
+document.write(bet);
+document.write('<br>');
 document.write("Your cards");
 document.write('<br>');
  for(amountcards = 0;amountcards < i;amountcards++){
@@ -170,6 +176,7 @@ n2 = h2;
 n3 = h3;
 n4 = h4;
 n5 = h5;
+ace();
 if(total  > 21){
 document.body.innerHTML = "";
 draw();
@@ -217,6 +224,7 @@ d2 = h2;
 d3 = h3;
 d4 = h4;
 d5 = h5;
+ace();
 if(totald  > 21){
 document.body.innerHTML = "";
 draw();
@@ -288,16 +296,9 @@ document.write("Push");
 function bet(){
 var check;
 do{
-document.write("");
 check = 0;
-document.write("money:");
-document.write(money);
-document.write('<br>');
 bet = prompt("Please enter the amount of money you want to bet","You start out with 100 dollar");
-if(bet == "" || bet < 0 || bet > money || bet == null) check++;
-document.write("bet:");
-document.write(bet);
-document.write('<br>');
+if(bet == "" || bet < 0 || bet > money || bet == null || isNaN(bet) == true) check++;
 }while(check != 0);
 }
 //alternate win conitions
@@ -369,6 +370,52 @@ money = money - (bet * 1.5);
 }
 }
 }
+function ace(){
+if(total > 21 || totald > 21){
+if(n == "A"){
+n = 1;
+add();
+}
+if(n2 == "A"){
+n2 = 1;
+add();
+}
+if(n3 == "A"){
+n3 = 1;
+add();
+}
+if(n4 == "A"){
+n4 = 1;
+add();
+}
+if(n5 == "A"){
+n5 = 1;
+add();
+}
+if(d == "A"){
+d = 1;
+dadd();
+}
+if(d2 == "A"){
+d2 = 1;
+dadd();
+}
+if(d3 == "A"){
+d3 = 1;
+dadd();
+}
+if(d4 == "A"){
+d4 = 1;
+dadd();
+}
+if(d5 == "A"){
+d5 = 1;
+dadd();
+}
+}
+}
+
+
 
 
 
