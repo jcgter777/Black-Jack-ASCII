@@ -1,4 +1,4 @@
-
+<script>
 var bet;
 var money = 100;
 var num;
@@ -25,7 +25,7 @@ d2 = rand();
 d3 = rand();
 d4 = rand();
 d5 = rand();
-//bet();
+bet();
 draw();
 drawd();
 di--;
@@ -288,12 +288,13 @@ document.write("Push");
 function bet(){
 var check;
 do{
+document.write("");
 check = 0;
 document.write("money:");
 document.write(money);
 document.write('<br>');
-bet = prompt("Please enter the amount you want to bet");
-if(bet > money || bet < 0) check++;
+bet = prompt("Please enter the amount of money you want to bet","You start out with 100 dollar");
+if(bet == "" || bet < 0 || bet > money || bet == null) check++;
 document.write("bet:");
 document.write(bet);
 document.write('<br>');
@@ -317,6 +318,9 @@ money = money - bet;
 }
 if(n == "A"){
 if(n2 == "J" || n2 == "Q" || n2 == "K" || n2 == 10){
+document.body.innerHTML = "";
+draw();
+drawd();
 document.write('<br>');
 document.write("BlackJack");
 document.write('<br>');
@@ -326,6 +330,9 @@ money = money + (bet * 1.5);
 }
 if(n2 == "A"){
 if(n == "J" || n == "Q" || n == "K" || n == 10){
+document.body.innerHTML = "";
+draw();
+drawd();
 document.write('<br>');
 document.write("BlackJack");
 document.write('<br>');
@@ -364,4 +371,4 @@ money = money - (bet * 1.5);
 }
 
 
-
+</script>
