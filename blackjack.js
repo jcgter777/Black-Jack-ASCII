@@ -1,4 +1,5 @@
 
+
 var bet;
 var money = 100;
 var num;
@@ -25,11 +26,23 @@ d2 = rand();
 d3 = rand();
 d4 = rand();
 d5 = rand();
-bet();
+document.write('<button onclick=playbet()>Bet</button>');
+document.write('<button onclick=play()>Play</button>');
+function playbet(){
+ybet();
 draw();
 drawd();
 di--;
 buttons();
+}
+function play(){
+bet = 0;
+draw();
+drawd();
+di--;
+buttons();
+}
+
 function draw(){
 document.write("money:");
 document.write(money);
@@ -293,7 +306,7 @@ document.write("Push");
 }
 }
 }
-function bet(){
+function ybet(){
 var check;
 do{
 check = 0;
@@ -414,6 +427,8 @@ dadd();
 }
 }
 }
+
+
 
 
 
