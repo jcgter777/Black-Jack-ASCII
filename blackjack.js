@@ -1,4 +1,4 @@
-<script>
+
 var bet;
 var money = 100;
 var num;
@@ -371,4 +371,4 @@ money = money - (bet * 1.5);
 }
 
 
-</script>
+
